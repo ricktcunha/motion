@@ -9,8 +9,8 @@ const COR = {fundo: '#0B0F0E', grade: 'rgba(120,255,200,.06)', texto: '#D6F5E8',
 const MONO = "Consolas, 'JetBrains Mono', 'Courier New', monospace";
 
 const linhas = [
-  {t: '$ claude', cor: COR.verde, em: 0.4},
-  {t: '> edita o projeto 001 no nível 1', cor: COR.texto, em: 1.0},
+  {t: '$ codex', cor: COR.verde, em: 0.4},
+  {t: '> edita o projeto 001 na edição', cor: COR.texto, em: 1.0},
   {t: '  ✓ vídeo lido · 02:14 · 1920×1080 · 30 fps', cor: COR.apagado, em: 2.2},
   {t: '  ✓ 312 palavras com tempo exato', cor: COR.apagado, em: 2.7},
   {t: '  ✓ 4 prints encontrados em prints/', cor: COR.apagado, em: 3.2},
@@ -39,7 +39,7 @@ export const TerminalTecnico: React.FC = () => {
         }}
       />
       <div style={{position: 'absolute', left: 90, top: 70, fontSize: 22, letterSpacing: 4, color: COR.apagado}}>
-        NÍVEL 1 · REMOTION
+        STUDIO · REMOTION
       </div>
       <div
         style={{

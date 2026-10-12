@@ -1,6 +1,6 @@
 # Galeria de estilos
 
-Referências para você escolher (ou misturar) antes de editar. **Nenhum estilo é obrigatório.** Diga ao Claude qual te agrada, peça variações ("o minimal suíço, mas com fundo escuro") ou traga as suas próprias referências: salve prints de vídeos, sites ou marcas que você admira em `prints/` e peça "segue o estilo destas imagens".
+Referências para você escolher (ou misturar) antes de editar. **Nenhum estilo é obrigatório.** Diga ao Codex qual te agrada, peça variações ("o minimal suíço, mas com fundo escuro") ou traga as suas próprias referências: salve prints de vídeos, sites ou marcas que você admira em `prints/` e peça "segue o estilo destas imagens".
 
 Na conversa, basta citar o nome do estilo em negrito.
 
@@ -26,7 +26,7 @@ Estes cinco vêm com código em [src/estilos/](../src/estilos/). Abra `npm run s
 
 ---
 
-## Do projeto original: Nível 1 (Remotion)
+## Outras referências do projeto
 
 Quadros reais de vídeos editados com este fluxo no canal **Macks Wendhell | Inteligência Aplicada**. São **um** jeito de fazer, não o padrão.
 
@@ -39,12 +39,12 @@ Quadros reais de vídeos editados com este fluxo no canal **Macks Wendhell | Int
 | ![Manuscrito colorido](imagens/manuscrito-colorido.jpg) | ![Dossiê com marca-texto](imagens/dossie-marca-texto.jpg) |
 | **Manuscrito colorido.** Elementos sobre a câmera cheia, números em blocos coloridos e anotações à mão. | **Dossiê com marca-texto.** Documento de papel, lupa, marca-texto amarelo e um mascote desenhado. |
 
-## Do projeto original: Nível 2 (Higgsfield)
+## Referências para assets visuais
 
 | | |
 |---|---|
 | ![Papel recortado](imagens/papel-recortado-broll.jpg) | ![Papel creme em aula](imagens/papel-creme-aula.jpg) |
-| **Papel recortado.** B-roll gerado na Higgsfield como diorama de papel, sem texto; os chips entram na montagem. | **Papel creme em aula.** Painel creme à esquerda, câmera à direita (70/30), cards que se montam com a fala. |
+| **Papel recortado.** B-roll criado com uma skill de geração de imagens como diorama de papel, sem texto; os chips entram na montagem. | **Papel creme em aula.** Painel creme à esquerda, câmera à direita (70/30), cards que se montam com a fala. |
 | ![Cinematográfico escuro](imagens/cinematico-escuro.jpg) | |
 | **Cinematográfico escuro.** B-roll realista, luz baixa, tipografia discreta. | |
 

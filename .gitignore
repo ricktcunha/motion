@@ -3,13 +3,42 @@ node_modules/
 *.log
 tmp/
 .env
+.env.*
+!.env.example
+
+# Arquivos de vídeo e áudio de origem ou exportação
+*.mp4
+*.m4v
+*.mov
+*.mkv
+*.webm
+*.avi
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.aiff
+*.aif
+
+# Pacotes exportados e arquivos de mídia de edição
+*.zip
+*.7z
+*.rar
+*.psd
+*.psb
+*.braw
+*.r3d
+*.ari
+*.dng
+
+# Arquivos locais do sistema e editor
+.DS_Store
+Thumbs.db
+
+# Edições finais e projetos de trabalho são locais
 edicoes/*
 !edicoes/.gitkeep
 projetos/*
 !projetos/LEIA-ME.md
 !projetos/000. exemplo/
-projetos/000. exemplo/**/*.mp4
-projetos/000. exemplo/**/*.mov
-.claude/skills/
-.claude/settings.local.json
-skills-lock.json

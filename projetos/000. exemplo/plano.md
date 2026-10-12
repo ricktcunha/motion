@@ -1,6 +1,6 @@
 # 003. jev-nao-e-hype: plano de edição
 
-> **Exemplo real** de um plano do Nível 2 (Higgsfield), mantido aqui como modelo. Um plano do Nível 1 segue a mesma lógica, mas sem a tabela de créditos: tudo é desenhado no Remotion.
+> **Exemplo de plano de edição**, mantido aqui como modelo. Os assets visuais podem ser criados com skills disponíveis no Codex e a montagem é feita no Remotion.
 
 ## Fonte
 
@@ -25,7 +25,7 @@ Vídeo de notícia sobre o Jev, da TypeSafe: um modelo que não conversa e só d
 | 10. Jevons e fecho | 10:46–11:59 | homenagem a Jevons, paradoxo do carvão, a aposta, "não é hype" | B-ROLL → CÂMERA |
 | 11. CTA | 11:59–12:19 | like, inscrição, próximo vídeo | CÂMERA |
 
-**Orientações recebidas:** seguir o fluxo de uma edição de notícia, só que **moderada**, com menos volume de inserções. **Zoom sem exagero.** Usar as fotos de `prints/pessoas` (Diogo, Kahneman, Jevons) e prints reais das notícias. O plano de inserções (um arquivo de referência em `prints/`) serve só de norte. A timeline segue a **transcrição**. Orçamento de **até 400–500 créditos**, com modelos moderados.
+**Orientações recebidas:** seguir o fluxo de uma edição de notícia, só que **moderada**, com menos volume de inserções. **Zoom sem exagero.** Usar as fotos de `prints/pessoas` (Diogo, Kahneman, Jevons) e prints reais das notícias. O plano de inserções (um arquivo de referência em `prints/`) serve só de norte. A timeline segue a **transcrição**. Assets visuais planejados para serem criados com skills disponíveis no Codex, após aprovação do plano.
 
 **Diferenças em relação ao plano de inserções.** Estes trechos saíram no corte e ficam fora: confiança calibrada, previsão do tempo, exemplo do banco, pulseiras da triagem, o caso de 9.081 produtos do paddo.dev, "MS Now / Morgan Stanley", a lista de X ("não escreve, não resume...") e o card de "Claude ou ChatGPT". O Kahneman aparece duas vezes na fala (3:35 e 3:53). O card dele entra só na primeira, e a AULA começa na segunda.
 
@@ -48,7 +48,7 @@ Vídeo de notícia sobre o Jev, da TypeSafe: um modelo que não conversa e só d
 
 **Curva de energia:** gancho seco com câmera → pico curto de notícia (1:19–1:56) → respiro com o fundador → B-rolls do problema → aula longa e densa (3:53–8:07) com um respiro em câmera no meio (6:55–7:22) → preço → casos de uso → respiro no pequeno negócio → B-roll e números nas limitações → Jevons (B-roll) → fecho em câmera limpa.
 
-**Zona do rosto a preservar** (frames da watch, plano único e estável): **x 700–1250, y 0–760**. O microfone ocupa x 820–1080, y 700–1080. Elementos sobre a câmera cheia ficam em **x < 660**. Na AULA, a câmera vai para a direita (x 1368, w 504), recortada no rosto.
+**Zona do rosto a preservar** (quadros de referência, plano único e estável): **x 700–1250, y 0–760**. O microfone ocupa x 820–1080, y 700–1080. Elementos sobre a câmera cheia ficam em **x < 660**. Na AULA, a câmera vai para a direita (x 1368, w 504), recortada no rosto.
 
 ## Timeline
 
@@ -104,26 +104,26 @@ Tempos em segundos do master. Os gatilhos vêm do `palavras.json` e serão refin
 
 Resumo de volume: 7 B-rolls, 6 cenas de print/notícia, 3 fotos de pessoas, 4 blocos de AULA e cerca de 45% do tempo em câmera limpa ou com um único chip.
 
-## Assets a gerar (Higgsfield)
+## Assets visuais a criar com skills do Codex
 
-Todos em papel recortado, sem texto. Imagens com `nano_banana_pro` 2k 16:9 (2 cr). Vídeos com `kling3_0` mode `pro`, sound `off` (~1,75 cr/s), exceto o herói.
+Todos em papel recortado, sem texto. Criar imagens de apoio com as skills de imagem disponíveis no Codex, por exemplo `imagegen`, respeitando a direção de arte aprovada. Se houver necessidade de movimento, animar no Remotion.
 
-| asset | cena | imagem | vídeo | custo |
-|---|---|---|---|---|
-| B1 | avalanche de cartões de notícia sobre a mesa | 1 img | kling pro 8 s | 2 + 14 |
-| B2 | laboratório atrás de uma cortina que se abre | 1 img | kling pro 6 s | 2 + 11 |
-| B4 | esteira: envelopes caem em três bandejas (**herói**) | 1 img | `seedance_2_0` 1080p 8 s | 2 + 72 |
-| B5 | consultor de terno separando cartas, relógio grande | 1 img | kling pro 10 s | 2 + 18 |
-| B8 | carta com tira vermelha passando por portão sem guarda | 1 img | kling pro 8 s | 2 + 14 |
-| B9 | máquina a vapor + carvão → várias máquinas (start/end) | 2 img | kling pro 10 s | 4 + 18 |
-| B10 | mapa de cidade com luzes terracota acendendo | 1 img | kling pro 10 s | 2 + 18 |
-| **subtotal** | | **18 cr** | **165 cr** | **183 cr** |
-| margem de refação | ~4 imagens + 2 vídeos kling | 8 | ~30 | 38 |
-| **total estimado** | | | | **~220 cr (teto 260)** |
+| asset | cena | descrição |
+|---|---|---|
+| B1 | avalanche de cartões de notícia sobre a mesa | uma imagem 16:9 |
+| B2 | laboratório atrás de uma cortina que se abre | uma imagem 16:9 |
+| B4 | esteira: envelopes caem em três bandejas | uma imagem 16:9; animar no Remotion |
+| B5 | consultor de terno separando cartas, relógio grande | uma imagem 16:9 |
+| B8 | carta com tira vermelha passando por portão sem guarda | uma imagem 16:9 |
+| B9 | máquina a vapor + carvão → várias máquinas | duas imagens para animar a transformação no Remotion |
+| B10 | mapa de cidade com luzes terracota acendendo | uma imagem 16:9 |
 
-Fica bem abaixo do limite de 400–500, como pede uma edição moderada. Se quiser gastar mais, as melhores trocas são B9 em Seedance (+~55 cr) ou mais dois B-rolls: #14 (conversa → decisão) e #32 (preço), com +~30 cr cada. Nesse caso, eles deixam de ser recriados na montagem.
 
-Tudo o que é texto, chip, AULA, gráfico, print e foto é montado no Higgsedit, com 0 crédito.
+
+
+Os assets são gerados somente depois da aprovação do plano. Ajuste quantidade e nível de detalhe conforme o tempo disponível e a necessidade de cada cena.
+
+Textos, chips, gráficos, prints e animações são compostos no Remotion.
 
 ## Saída
 
@@ -131,7 +131,6 @@ Tudo o que é texto, chip, AULA, gráfico, print e foto é montado no Higgsedit,
 
 ## Resultado
 
-- Render em 5 blocos no sandbox (`--range`, 3 workers; com 7 faltou memória), unidos localmente com o áudio do master copiado bit a bit.
+- Render local com Remotion; preserve o áudio original do master.
 - Validação: 1920×1080, 29,97 fps, h264 + aac, duração 739,285 s contra 739,272 s do master (0,4 quadro), uma trilha de áudio, volume igual (média de −22,3 dB, pico de −0,6 dB).
 - Ajustes do QC: o card da câmera mostrava a planta (a mídia tinha geometria fixa); layout da resposta 2 da AULA; "≈" e "→" sem glifo nas fontes; exemplo prático contínuo em AULA (242,7–487,3 s), sem voltar para a câmera na digressão.
-- Créditos: 144 (8 imagens `nano_banana_pro` + 6 Kling pro + 1 Seedance).

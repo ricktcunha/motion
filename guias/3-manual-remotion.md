@@ -1,6 +1,6 @@
 # Manual do Remotion para quem nunca editou vídeo
 
-Este manual explica o Remotion sem exigir que você saiba programar. A ideia é você entender **o que é possível pedir** e **o que o Claude está fazendo** quando edita o seu vídeo no Nível 1.
+Este manual explica o Remotion sem exigir que você saiba programar. A ideia é você entender **o que é possível pedir** e **o que o Codex está fazendo** quando edita o seu vídeo.
 
 ---
 
@@ -14,7 +14,7 @@ Pense num flipbook, aquele bloquinho que você folheia rápido e o desenho parec
 - folhear **30 folhas por segundo** dá movimento suave: isso é o **fps** (quadros por segundo);
 - um vídeo de 10 segundos a 30 fps tem **300 quadros**.
 
-No Remotion, em vez de desenhar 300 folhas à mão, o Claude escreve uma **regra**: "no quadro 0 o título está invisível, no quadro 15 ele está inteiro". O Remotion calcula todas as folhas do meio sozinho.
+No Remotion, em vez de desenhar 300 folhas à mão, o Codex escreve uma **regra**: "no quadro 0 o título está invisível, no quadro 15 ele está inteiro". O Remotion calcula todas as folhas do meio sozinho.
 
 ## 2. As peças principais
 
@@ -47,11 +47,11 @@ Abre uma página no navegador com:
 - **embaixo**, a timeline com as `Sequence`s, que mostra quando cada cena entra e sai;
 - **à direita**, as propriedades e o botão **Render**.
 
-Você pode deixar o Studio aberto enquanto conversa com o Claude: quando ele altera o código, a pré-visualização atualiza sozinha.
+Você pode deixar o Studio aberto enquanto conversa com o Codex: quando ele altera o código, a pré-visualização atualiza sozinha.
 
 ## 4. O que dá para pedir
 
-Tudo abaixo é possível no Nível 1, sem nenhum custo. Peça com as suas palavras.
+Tudo abaixo pode ser feito no Remotion. Peça com as suas palavras.
 
 ### Texto e tipografia
 - Títulos que entram palavra por palavra, letra por letra, com desfoque ou subindo.
@@ -126,7 +126,7 @@ npx remotion still src/index.ts VerticalLegendas edicoes/teste.png --frame=75
 npx remotion render src/index.ts VerticalLegendas edicoes/teste.mp4
 ```
 
-Na prática, é o Claude quem roda esses comandos. Eles estão aqui para você saber o que está acontecendo.
+Na prática, é o Codex quem roda esses comandos. Eles estão aqui para você saber o que está acontecendo.
 
 ## 7. MP4 ou MOV?
 
@@ -138,7 +138,7 @@ Na prática, é o Claude quem roda esses comandos. Eles estão aqui para você s
 | Sintoma | Causa provável | Solução |
 |---|---|---|
 | `npm` não é reconhecido | Node.js não instalado | instale o Node.js LTS (veja os [primeiros passos](1-primeiros-passos.md)) |
-| Studio abre, mas o vídeo aparece preto | caminho do arquivo errado ou com acento digitado diferente | peça ao Claude para conferir o `staticFile` |
+| Studio abre, mas o vídeo aparece preto | caminho do arquivo errado ou com acento digitado diferente | peça ao Codex para conferir o `staticFile` |
 | Render muito lento | vídeo longo ou efeitos pesados | normal na primeira vez; peça render por partes ou em qualidade de rascunho para revisar |
 | `EPERM` no Windows | antivírus ou OneDrive bloqueando arquivos | mantenha o projeto fora de pastas sincronizadas (ex.: `C:\dev\studio`) |
 | Texto cortado ou fora da tela | frase maior que o espaço | peça ajuste de tamanho ou quebra de linha |
@@ -150,4 +150,4 @@ O Remotion é gratuito para **pessoas físicas, organizações sem fins lucrativ
 ## 10. Para ir além
 
 - Documentação oficial (em inglês): [remotion.dev/docs](https://www.remotion.dev/docs)
-- Skill de boas práticas que o Claude usa: [remotion-dev/skills](https://github.com/remotion-dev/skills)
+- Skill de boas práticas que o Codex usa: [remotion-dev/skills](https://github.com/remotion-dev/skills)

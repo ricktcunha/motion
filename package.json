@@ -2,11 +2,15 @@
   "name": "studio",
   "version": "1.0.0",
   "private": true,
-  "description": "Estúdio de edição de vídeo com Claude Code: Nível 1 (Remotion, gratuito) e Nível 2 (Higgsfield).",
+  "description": "Estúdio de edição de vídeo com Codex e Remotion, com assets visuais criados pelas skills disponíveis.",
   "scripts": {
     "instalar": "node scripts/instalar.mjs",
     "studio": "remotion studio src/index.ts",
     "compositions": "remotion compositions src/index.ts",
+    "atlas:audio": "node scripts/atlas-audio.mjs",
+    "atlas:frames": "node scripts/render-atlas.mjs stills",
+    "atlas:animatic": "node scripts/render-atlas.mjs animatic",
+    "atlas:render": "node scripts/render-atlas.mjs final",
     "typecheck": "tsc --noEmit && node scripts/check-split-layouts.mjs"
   },
   "dependencies": {
@@ -17,6 +21,8 @@
     "remotion": "4.0.451"
   },
   "devDependencies": {
+    "@remotion/bundler": "4.0.451",
+    "@remotion/renderer": "4.0.451",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "typescript": "5.9.3"

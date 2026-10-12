@@ -69,7 +69,7 @@ Perguntas úteis:
 - Ênfase: punch-in até ~1,12 em 2–3 s.
 - Limite do pan: `|deslocamento| ≤ largura × (escala − 1) / 2`, senão aparece borda preta.
 
-**Mudança de layout** (entrar numa `aula`, card da `demo` trocando de canto): **0,9–1,2 s**, curva suave sem "quique" (`Easing.inOut(Easing.cubic)` no Remotion, `bezier(0.65, 0, 0.35, 1)` no Higgsedit). Câmera e painel se movem **juntos**, com a mesma curva e a mesma janela de tempo. Pode começar alguns quadros antes da palavra para estar pronto nela, mas o conteúdo nunca aparece antes de ser dito.
+**Mudança de layout** (entrar numa `aula`, card da `demo` trocando de canto): **0,9–1,2 s**, curva suave sem "quique" (`Easing.inOut(Easing.cubic)` no Remotion). Câmera e painel se movem **juntos**, com a mesma curva e a mesma janela de tempo. Pode começar alguns quadros antes da palavra para estar pronto nela, mas o conteúdo nunca aparece antes de ser dito.
 
 **Vozes de transição** (misture para não ficar previsível):
 
@@ -96,7 +96,7 @@ Ideias de partida, não obrigações:
 
 ## 6. Prints e marca-texto
 
-Prints são a matéria-prima mais valiosa do Nível 1: o resultado fica muito melhor quando você **tira print do que quer ver animado e salva direto em `prints/`**.
+Prints são uma matéria-prima valiosa: o resultado fica muito melhor quando você **tira print do que quer ver animado e salva direto em `prints/`**.
 
 - O print preserva inteira a região que comprova a fala: título, frase, número. Corte acidental reprova o quadro.
 - Recorte deliberado é permitido quando melhora a leitura, desde que a evidência continue visível.
