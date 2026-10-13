@@ -46,7 +46,10 @@ A pasta `projetos/` é ignorada pelo Git, então vídeos, áudios e materiais de
 npm run studio        # abrir o estúdio do Remotion
 npm run compositions  # listar composições disponíveis
 npm run typecheck     # verificar TypeScript e layouts
+npm run video -- atlas preview # gerar prévia do Atlas
 ```
+
+Os renders seguem um comando comum: `npm run video -- <slug> <stills|preview|final>`. Cada composição mantém seus metadados em `src/videos/<slug>/project.json`; para adicionar uma, crie sua pasta de código e inclua o projeto em `src/videos/registry.ts`. O Atlas também tem o comando específico `npm run atlas:audio` para regenerar sua trilha.
 
 O fluxo de instalação e os detalhes da primeira edição estão em [guias/1-primeiros-passos.md](guias/1-primeiros-passos.md).
 
@@ -57,9 +60,10 @@ AGENTS.md      instruções do diretor de vídeo para o Codex
 guias/         instalação, Remotion, assets e direção editorial
 estilos/       galeria e composições de referência
 projetos/      vídeos, referências e materiais de trabalho locais
-edicoes/       prévias e vídeos exportados locais
-src/           composições e estilos do Remotion
-scripts/       instalação e renderização do projeto Atlas
+edicoes/       vídeos finais, projetos editáveis, validações e revisões locais
+src/           estilos compartilhados e registro das composições
+src/videos/    código e metadados organizados por slug de projeto
+scripts/       instalação, renderização e preparação dos quadros de revisão
 tools/         transcrição local
 ```
 
@@ -74,9 +78,11 @@ tools/         transcrição local
 
 ## Composição Atlas
 
-O projeto Atlas é um exemplo de vídeo de motion graphics no formato 16:9. O código da composição fica em `src/videos/atlas/`; os arquivos-fonte, fontes e renders ficam nas pastas locais `projetos/001. atlas/` e `edicoes/001. atlas/`, ignoradas pelo Git.
+O projeto Atlas é um exemplo de vídeo de motion graphics no formato 16:9. O código e os metadados da composição ficam em `src/videos/atlas/`; os arquivos-fonte, fontes e renders ficam nas pastas locais `projetos/001. atlas/` e `edicoes/001. atlas/`, ignoradas pelo Git.
 
-Os comandos específicos para gerar áudio, quadros, animatic e render final estão no [package.json](package.json). Configure os materiais locais descritos em `projetos/001. atlas/LEIA-ME.md` antes de executar esse fluxo.
+Use `npm run video -- atlas stills`, `npm run video -- atlas preview` e `npm run video -- atlas final` para gerar quadros, prévia e render final. O comando específico `npm run atlas:audio` gera a trilha. Configure os materiais locais descritos em `projetos/001. atlas/LEIA-ME.md` antes de executar esse fluxo.
+
+Cada trabalho tem uma pasta numerada em `projetos/` para plano e assets e outra em `edicoes/` para os entregáveis. Guarde a revisão atual na raiz de `edicoes/<NNN. slug>/revisao/` e versões anteriores em subpastas como `r01/` e `r02/`. Os arquivos de trabalho e exportações ficam locais e não são enviados ao Git.
 
 ## Licenças e créditos
 

@@ -8,9 +8,7 @@
     "studio": "remotion studio src/index.ts",
     "compositions": "remotion compositions src/index.ts",
     "atlas:audio": "node scripts/atlas-audio.mjs",
-    "atlas:frames": "node scripts/render-atlas.mjs stills",
-    "atlas:animatic": "node scripts/render-atlas.mjs animatic",
-    "atlas:render": "node scripts/render-atlas.mjs final",
+    "video": "node scripts/render-video.mjs",
     "typecheck": "tsc --noEmit && node scripts/check-split-layouts.mjs"
   },
   "dependencies": {

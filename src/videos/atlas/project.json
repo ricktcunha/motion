@@ -1,0 +1,28 @@
+{
+  "slug": "atlas",
+  "projectFolder": "001. atlas",
+  "editionFolder": "001. atlas",
+  "folderLabel": "001-atlas",
+  "composition": {
+    "id": "Atlas",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "durationInFrames": 2700,
+    "defaultProps": {"muted": false}
+  },
+  "styleFrame": {
+    "id": "AtlasStyleFrame",
+    "stillTime": 8,
+    "defaultProps": {"stillTime": 8, "muted": true}
+  },
+  "render": {
+    "stillsInputProps": {"muted": true},
+    "stillSeconds": [2.8, 8.5, 15.7, 20.7, 26.5, 32.4, 36.5, 42.5],
+    "stillsPrefix": "atlas",
+    "previewFile": "atlas-animatic.mp4",
+    "finalFile": "atlas-final.mp4",
+    "audioBitrate": "320k",
+    "normalizeDurationSeconds": 45
+  }
+}

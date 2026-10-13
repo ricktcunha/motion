@@ -38,7 +38,9 @@ estilos/                  galeria de referências
 projetos/<NNN. slug>/     video/ · prints/ · frames/ · transcricao/ · assets/ · plano.md
 edicoes/<NNN. slug>/      entregáveis finais
 src/                      composições e estilos do Remotion
+src/videos/<slug>/        código e project.json de cada composição
+src/videos/registry.ts    registro das composições disponíveis
 tools/transcrever.py      transcrição local com tempo por palavra
 ```
 
-Use o próximo número disponível para cada projeto. O prefixo numérico não entra no slug usado em `src/` ou nos ids de composição. `projetos/` é a pasta pública do Remotion: use `staticFile('<NNN. slug>/video/arquivo.mp4')`. Comandos: `npm run studio`, `npm run typecheck` e `npm run compositions`.
+Use o próximo número disponível para cada projeto. O prefixo numérico não entra no slug usado em `src/` ou nos ids de composição. `projetos/` é a pasta pública do Remotion: use `staticFile('<NNN. slug>/video/arquivo.mp4')`. Mantenha os metadados de render em `src/videos/<slug>/project.json` e registre a composição em `src/videos/registry.ts`. Comandos: `npm run studio`, `npm run typecheck`, `npm run compositions` e `npm run video -- <slug> <stills|preview|final>`.

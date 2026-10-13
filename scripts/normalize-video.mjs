@@ -15,7 +15,8 @@ export const runFfmpeg = args => {
   if (result.status !== 0) throw new Error(`FFmpeg falhou: ${result.error?.message ?? result.status}`);
 };
 
-export const normalizeDuration = (file, seconds = 45) => {
+export const normalizeDuration = (file, seconds) => {
+  if (!Number.isFinite(seconds) || seconds <= 0) throw new Error('A duração precisa ser um número positivo.');
   const input = path.resolve(file);
   const temporary = input.replace(/\.mp4$/i, '.duration-check.mp4');
   if (temporary === input) throw new Error('O arquivo de saída precisa ser um MP4.');
@@ -28,6 +29,6 @@ export const normalizeDuration = (file, seconds = 45) => {
 };
 
 if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
-  if (!process.argv[2]) throw new Error('Uso: node scripts/atlas-export.mjs <arquivo.mp4>');
-  normalizeDuration(process.argv[2]);
+  if (!process.argv[2] || !process.argv[3]) throw new Error('Uso: node scripts/normalize-video.mjs <arquivo.mp4> <duração-em-segundos>');
+  normalizeDuration(process.argv[2], Number(process.argv[3]));
 }

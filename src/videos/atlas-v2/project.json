@@ -1,0 +1,17 @@
+{
+  "slug": "atlas-v2",
+  "projectFolder": "002. atlas-v2",
+  "editionFolder": "002. atlas-v2",
+  "folderLabel": "002-atlas-v2",
+  "composition": {"id": "AtlasV2", "width": 1920, "height": 1080, "fps": 60, "durationInFrames": 2700, "defaultProps": {"muted": false}},
+  "render": {
+    "stillsInputProps": {"muted": true},
+    "stillSeconds": [2.8, 7.8, 12.6, 15.8, 22.5, 26.5, 30.5, 32.8, 36.5, 41],
+    "stillsPrefix": "atlas-v2-r02",
+    "previewFile": "atlas-v2-previa-r02.mp4",
+    "finalFile": "atlas-v2-final.mp4",
+    "previewScale": 0.5,
+    "audioBitrate": "320k",
+    "normalizeDurationSeconds": 45
+  }
+}
