@@ -38,7 +38,7 @@ projetos/001. meu-video/
 └── plano.md     plano para aprovação
 ```
 
-A pasta `projetos/` é ignorada pelo Git, então vídeos, áudios e materiais de trabalho ficam locais. Os arquivos exportados em `edicoes/` também são ignorados. O repositório mantém o código, os guias, os exemplos e as referências visuais leves.
+A pasta `projetos/` guarda os masters e materiais locais, e `edicoes/` guarda os renders; ambas ficam fora do Git. O repositório mantém o código, os guias, modelos de plano e referências visuais leves.
 
 ## Comandos
 
@@ -46,10 +46,12 @@ A pasta `projetos/` é ignorada pelo Git, então vídeos, áudios e materiais de
 npm run studio        # abrir o estúdio do Remotion
 npm run compositions  # listar composições disponíveis
 npm run typecheck     # verificar TypeScript e layouts
+npm run project:new -- atlas-labs "Atlas Labs" # preparar a pasta local e o plano
+npm run video -- atlas audio # gerar a trilha do Atlas
 npm run video -- atlas preview # gerar prévia do Atlas
 ```
 
-Os renders seguem um comando comum: `npm run video -- <slug> <stills|preview|final>`. Cada composição mantém seus metadados em `src/videos/<slug>/project.json`; para adicionar uma, crie sua pasta de código e inclua o projeto em `src/videos/registry.ts`. O Atlas também tem o comando específico `npm run atlas:audio` para regenerar sua trilha.
+`npm run project:new` escolhe o próximo número e prepara o plano e as pastas locais. Primeiro aprove o plano; só então crie o código em `src/videos/<slug>/` e registre a composição em `src/videos/registry.ts`. Cada composição mantém seus metadados em `src/videos/<slug>/project.json`. Áudio, quadros, prévias e renders finais usam a mesma interface: `npm run video -- <slug> <audio|stills|preview|final>`.
 
 O fluxo de instalação e os detalhes da primeira edição estão em [guias/1-primeiros-passos.md](guias/1-primeiros-passos.md).
 
@@ -59,7 +61,7 @@ O fluxo de instalação e os detalhes da primeira edição estão em [guias/1-pr
 AGENTS.md      instruções do diretor de vídeo para o Codex
 guias/         instalação, Remotion, assets e direção editorial
 estilos/       galeria e composições de referência
-projetos/      vídeos, referências e materiais de trabalho locais
+projetos/      modelo de plano versionado; masters e materiais locais ignorados
 edicoes/       vídeos finais, projetos editáveis, validações e revisões locais
 src/           estilos compartilhados e registro das composições
 src/videos/    código e metadados organizados por slug de projeto
@@ -80,9 +82,9 @@ tools/         transcrição local
 
 O projeto Atlas é um exemplo de vídeo de motion graphics no formato 16:9. O código e os metadados da composição ficam em `src/videos/atlas/`; os arquivos-fonte, fontes e renders ficam nas pastas locais `projetos/001. atlas/` e `edicoes/001. atlas/`, ignoradas pelo Git.
 
-Use `npm run video -- atlas stills`, `npm run video -- atlas preview` e `npm run video -- atlas final` para gerar quadros, prévia e render final. O comando específico `npm run atlas:audio` gera a trilha. Configure os materiais locais descritos em `projetos/001. atlas/LEIA-ME.md` antes de executar esse fluxo.
+Use `npm run video -- atlas audio`, `npm run video -- atlas stills`, `npm run video -- atlas preview` e `npm run video -- atlas final` para gerar a trilha, os quadros, a prévia e o render final. Configure os materiais locais descritos em `projetos/001. atlas/LEIA-ME.md` antes de executar esse fluxo.
 
-Cada trabalho tem uma pasta numerada em `projetos/` para plano e assets e outra em `edicoes/` para os entregáveis. Guarde a revisão atual na raiz de `edicoes/<NNN. slug>/revisao/` e versões anteriores em subpastas como `r01/` e `r02/`. Os arquivos de trabalho e exportações ficam locais e não são enviados ao Git.
+Cada trabalho tem uma pasta numerada correspondente em `projetos/` e `edicoes/`. Guarde a revisão atual na raiz de `edicoes/<NNN. slug>/revisao/` e versões anteriores em subpastas como `r01/` e `r02/`. Use `projetos/000. exemplo/` como estrutura e modelo de plano; `exemplo-plano-jev.md` é apenas um exemplo completo já preenchido.
 
 ## Licenças e créditos
 

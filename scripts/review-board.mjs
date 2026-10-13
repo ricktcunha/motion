@@ -10,7 +10,7 @@ if (!/^[a-z0-9][a-z0-9-]*$/.test(slug ?? '') || !['composicoes', 'transicoes'].i
 const config = JSON.parse(fs.readFileSync(path.resolve('src/videos', slug, 'project.json'), 'utf8'));
 const frames = requestedFrames.length ? requestedFrames.map(Number) : config.render.stillSeconds.map(second => Math.round(second * config.composition.fps));
 if (!frames.length || frames.some(frame => !Number.isInteger(frame) || frame < 0)) throw new Error('Quadros inválidos.');
-const folder = path.resolve('edicoes', config.editionFolder, 'revisao');
+const folder = path.resolve('edicoes', config.projectFolder, 'revisao');
 const images = frames.map(frame => 'data:image/png;base64,' + fs.readFileSync(path.join(folder, 'stills', `${config.render.stillsPrefix}-${String(frame).padStart(4, '0')}.png`)).toString('base64'));
 const columns = mode === 'transicoes' ? 3 : 2, width = mode === 'transicoes' ? 480 : 640, height = width * 9 / 16;
 const browser = await openBrowser('chrome');

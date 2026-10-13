@@ -12,7 +12,7 @@ Leia [guias/2-edicao-remotion.md](guias/2-edicao-remotion.md) e [guias/5-direcao
 
 1. Identifique o tipo do trabalho: edição de um vídeo fornecido ou motion graphics criado do zero. Confira arquivos e instruções. Não invente conteúdo factual; peça referências quando forem necessárias.
 2. Para uma edição com vídeo fornecido, examine quadros relevantes e transcreva o áudio com `python tools/transcrever.py "caminho do vídeo" "caminho da transcrição"`. Para motion graphics sem vídeo falado, combine tema, mensagem, roteiro, duração, proporção e áudio; a transcrição não é necessária.
-3. Crie `plano.md` com cenas, tempos, textos, estilo e assets necessários. Pare e peça aprovação antes de programar ou gerar assets.
+3. Se precisar de uma pasta nova, use `npm run project:new -- <slug> "<nome>"`. Crie `plano.md` com cenas, tempos, textos, estilo e assets necessários. Pare e peça aprovação antes de programar ou gerar assets.
 4. Para imagens e outros assets visuais, use as skills de criação disponíveis no Codex, como `imagegen`, quando adequadas. Salve os resultados na pasta `assets/` do projeto, com nomes claros. Construa tipografia, formas, gráficos e animações diretamente no Remotion. Se a skill não estiver disponível, explique e proponha uma alternativa feita com Remotion.
 5. Monte a composição no Remotion. Todo texto deve ser composto no Remotion, não embutido em imagens geradas. Preserve a identidade visual e deixe espaço negativo para os elementos da edição.
 6. Prepare a prévia: gere quadros PNG dos momentos-chave e um MP4 de revisão em `edicoes/<NNN. nome>/revisao/`. Compartilhe links clicáveis para esses arquivos e peça aprovação. Se a pessoa preferir, oriente-a a abrir `npm run studio` para assistir e pausar a composição. Faça os ajustes pedidos e só então renderize o arquivo final em `edicoes/<NNN. nome>/`.
@@ -38,9 +38,9 @@ estilos/                  galeria de referências
 projetos/<NNN. slug>/     video/ · prints/ · frames/ · transcricao/ · assets/ · plano.md
 edicoes/<NNN. slug>/      entregáveis finais
 src/                      composições e estilos do Remotion
-src/videos/<slug>/        código e project.json de cada composição
+src/videos/<slug>/        código, project.json e áudio opcional de cada composição
 src/videos/registry.ts    registro das composições disponíveis
 tools/transcrever.py      transcrição local com tempo por palavra
 ```
 
-Use o próximo número disponível para cada projeto. O prefixo numérico não entra no slug usado em `src/` ou nos ids de composição. `projetos/` é a pasta pública do Remotion: use `staticFile('<NNN. slug>/video/arquivo.mp4')`. Mantenha os metadados de render em `src/videos/<slug>/project.json` e registre a composição em `src/videos/registry.ts`. Comandos: `npm run studio`, `npm run typecheck`, `npm run compositions` e `npm run video -- <slug> <stills|preview|final>`.
+Use o próximo número disponível para cada projeto. `npm run project:new -- <slug> "<nome>"` prepara as pastas locais e o plano. O prefixo numérico não entra no slug usado em `src/` ou nos ids de composição. `projetos/` é a pasta pública do Remotion: use `staticFile('<NNN. slug>/video/arquivo.mp4')`. Cada composição usa `src/videos/<slug>/project.json`; `projectFolder` define as pastas correspondentes em `projetos/` e `edicoes/`. Registre a composição em `src/videos/registry.ts`. Comandos: `npm run studio`, `npm run typecheck`, `npm run compositions` e `npm run video -- <slug> <audio|stills|preview|final>`.

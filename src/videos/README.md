@@ -1,20 +1,39 @@
-# Composições por projeto
+# Padrão de projetos de vídeo
 
-Cada vídeo com composição própria tem uma pasta em `src/videos/<slug>/`:
+Cada composição fica em `src/videos/<slug>/`. Essa pasta contém o código, `project.json` e, quando houver trilha gerada por código, `audio.mjs`.
 
 ```text
-src/videos/meu-video/
-├── index.tsx       componente e registro das composições do projeto
-├── project.json    ids, formato, duração e nomes dos arquivos de saída
-└── ...             componentes e estilos exclusivos desse vídeo
+src/videos/<slug>/
+├── project.json       configuração única do vídeo e do render
+├── index.tsx          registro das composições desse projeto
+├── VideoFilm.tsx      composição principal (nome pode ser específico)
+├── audio.mjs          gerador de áudio opcional
+└── ...                componentes exclusivos do projeto
+
+projetos/<NNN. slug>/  fontes, referências, assets e plano local
+edicoes/<NNN. slug>/   entrega, validação e revisões locais
 ```
 
-Para adicionar um projeto:
+`projectFolder` é o nome da pasta numerada usado tanto em `projetos/` quanto em `edicoes/`; o sufixo precisa corresponder ao slug. O nome da pasta no Studio é derivado desses campos. Assim, número, slug e diretórios não podem divergir.
 
-1. Copie `atlas/index.tsx` e `atlas/project.json` como ponto de partida e troque o componente e os metadados.
-2. Em `registry.ts`, importe o projeto e acrescente-o ao array `videoProjects`.
-3. Use `npm run video -- <slug> stills`, `npm run video -- <slug> preview` e `npm run video -- <slug> final`.
+Cada manifesto declara `slug`, `projectFolder`, `composition` e `render`. `audioGenerator` é opcional e aponta para um arquivo dentro da pasta do projeto. O verificador confere manifestos, ids únicos, entradas `index.tsx` e registro em `registry.ts`.
 
-O `project.json` é compartilhado pelo registro do Remotion e pelo renderizador. `projectFolder` e `editionFolder` são os nomes locais em `projetos/` e `edicoes/`; o `slug` é curto, sem o prefixo numérico. A composição principal declara `id`, `width`, `height`, `fps`, `durationInFrames` e `defaultProps`. A seção `render` define nomes de saída, tempos padrão para quadros e opções de prévia. `normalizeDurationSeconds` é opcional e deve ser usado somente quando o projeto precisar ajustar a duração do áudio após a exportação.
+## Criar projeto
 
-Os comandos específicos de um projeto devem ficar para tarefas exclusivas, como gerar uma trilha original. Quadros, prévias e renders finais usam o comando compartilhado.
+```bash
+npm run project:new -- atlas-labs "Atlas Labs"
+```
+
+O comando escolhe o próximo número disponível e cria as pastas locais de projeto e entrega e um plano inicial. Revise e aprove o plano antes de programar. Depois, crie `src/videos/<slug>/project.json` e `index.tsx`, registre o projeto em `src/videos/registry.ts` e rode `npm run typecheck`.
+
+## Comandos padronizados
+
+```bash
+npm run video -- <slug> audio
+npm run video -- <slug> stills [segundos ...]
+npm run video -- <slug> preview
+npm run video -- <slug> final
+npm run typecheck
+```
+
+O áudio é opcional. Os arquivos de revisão e saída ficam na pasta numerada em `edicoes/`; versões antigas são preservadas em `revisao/r01/`, `r02/` etc. `project.json` define os nomes e os tempos de saída. `npm run typecheck` valida os manifestos e a estrutura do registro além de verificar o TypeScript.

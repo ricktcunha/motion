@@ -1,8 +1,7 @@
 {
   "slug": "atlas",
   "projectFolder": "001. atlas",
-  "editionFolder": "001. atlas",
-  "folderLabel": "001-atlas",
+  "audioGenerator": "audio.mjs",
   "composition": {
     "id": "Atlas",
     "width": 1920,

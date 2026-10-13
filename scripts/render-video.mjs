@@ -1,23 +1,35 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderMedia, renderStill, selectComposition} from '@remotion/renderer';
 import {normalizeDuration} from './normalize-video.mjs';
 
-const usage = 'Uso: npm run video -- <slug> <stills|preview|final> [segundos ...]';
+const usage = 'Uso: npm run video -- <slug> <audio|stills|preview|final> [segundos ...]';
 
 export const renderVideo = async (slug, mode, requestedSeconds = []) => {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(slug ?? '')) throw new Error(usage);
-  if (!['stills', 'preview', 'final'].includes(mode)) throw new Error(usage);
+  if (!['audio', 'stills', 'preview', 'final'].includes(mode)) throw new Error(usage);
 
   const manifestPath = path.resolve('src/videos', slug, 'project.json');
   if (!fs.existsSync(manifestPath)) throw new Error(`Projeto "${slug}" não encontrado em src/videos/.`);
   const project = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   const {composition, render} = project;
-  const editionDir = path.resolve('edicoes', project.editionFolder);
+  const editionDir = path.resolve('edicoes', project.projectFolder);
   const reviewDir = path.join(editionDir, 'revisao');
   const stillsDir = path.join(reviewDir, 'stills');
+  if (mode === 'audio') {
+    if (!project.audioGenerator) throw new Error(`O projeto "${slug}" não define um audioGenerator em project.json.`);
+    const generator = path.resolve(path.dirname(manifestPath), project.audioGenerator);
+    const relativeGenerator = path.relative(path.dirname(manifestPath), generator);
+    if (relativeGenerator.startsWith('..') || path.isAbsolute(relativeGenerator) || !fs.existsSync(generator)) {
+      throw new Error(`Gerador de áudio inválido em src/videos/${slug}/project.json.`);
+    }
+    const result = spawnSync(process.execPath, [generator], {cwd: process.cwd(), stdio: 'inherit'});
+    if (result.status !== 0) throw new Error(`A geração de áudio falhou: ${result.error?.message ?? result.status}`);
+    return;
+  }
   fs.mkdirSync(stillsDir, {recursive: true});
 
   const serveUrl = await bundle({
@@ -42,8 +54,9 @@ export const renderVideo = async (slug, mode, requestedSeconds = []) => {
       const seconds = requestedSeconds.length
         ? requestedSeconds.map(Number)
         : render.stillSeconds;
-      if (!seconds.length || seconds.some(value => !Number.isFinite(value) || value < 0)) {
-        throw new Error('Informe tempos em segundos válidos para gerar quadros.');
+      const durationSeconds = selected.durationInFrames / selected.fps;
+      if (!seconds.length || seconds.some(value => !Number.isFinite(value) || value < 0 || value >= durationSeconds)) {
+        throw new Error(`Informe tempos entre 0 e ${durationSeconds}s para gerar quadros.`);
       }
       for (const second of seconds) {
         const frame = Math.min(selected.durationInFrames - 1, Math.round(second * selected.fps));
@@ -79,7 +92,7 @@ export const renderVideo = async (slug, mode, requestedSeconds = []) => {
         }
       },
     });
-    if (render.normalizeDurationSeconds) normalizeDuration(output, render.normalizeDurationSeconds);
+    if (render.normalizeDurationSeconds) normalizeDuration(output, render.normalizeDurationSeconds, render.audioBitrate);
     console.log(`Concluído → ${output}`);
   } finally {
     await browser.close({silent: true});

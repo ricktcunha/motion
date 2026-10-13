@@ -22,7 +22,7 @@ export const RemotionRoot: React.FC = () => (
     </Folder>
 
     {videoProjects.map(({config, compositions}) => (
-      <Folder key={config.slug} name={config.folderLabel}>
+      <Folder key={config.slug} name={`${config.projectFolder.slice(0, 3)}-${config.slug}`}>
         {compositions.map(({component, ...composition}) => (
           <Composition key={composition.id} component={component} {...composition} />
         ))}

@@ -12,6 +12,6 @@ projetos/
 - Numeração com três dígitos, ponto e espaço: `001. nome`, `002. nome`...
 - Não sabe o nome ainda? Solte o vídeo direto em `projetos/` e peça ao Codex para organizar.
 - **Prints melhoram muito o resultado.** Tire print de sites, notícias, telas e gráficos que você cita e salve em `prints/` com nomes claros (`noticia-google.png`).
-- O resto (`frames/`, `transcricao/`, `plano.md`, `assets/`) o Codex prepara durante o fluxo de edição.
+- Use `npm run project:new -- <slug> "<nome>"` para preparar a próxima pasta e um plano em branco antes de definir a edição. O Codex cria os arquivos durante o fluxo.
 
-Esta pasta fica fora do Git, com exceção de `000. exemplo/`, que traz um plano de edição real como modelo.
+Esta pasta fica fora do Git, com exceção de `000. exemplo/`, que contém o plano-modelo e o exemplo completo de referência. Masters, prints, transcrições e assets de cada vídeo ficam locais.

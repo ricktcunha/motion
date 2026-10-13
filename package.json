@@ -7,9 +7,9 @@
     "instalar": "node scripts/instalar.mjs",
     "studio": "remotion studio src/index.ts",
     "compositions": "remotion compositions src/index.ts",
-    "atlas:audio": "node scripts/atlas-audio.mjs",
     "video": "node scripts/render-video.mjs",
-    "typecheck": "tsc --noEmit && node scripts/check-split-layouts.mjs"
+    "project:new": "node scripts/new-project.mjs",
+    "typecheck": "tsc --noEmit && node scripts/check-split-layouts.mjs && node scripts/check-video-projects.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.451",
